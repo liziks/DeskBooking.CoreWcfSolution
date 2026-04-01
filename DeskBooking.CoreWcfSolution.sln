@@ -1,0 +1,59 @@
+
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.Contracts", "src\DeskBooking.Contracts\DeskBooking.Contracts.csproj", "{DAB32C2C-2A34-4A93-8B5A-AF525A3D1111}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.Domain", "src\DeskBooking.Domain\DeskBooking.Domain.csproj", "{8EF41136-D084-40A6-87B6-B832BB0D2222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.Application", "src\DeskBooking.Application\DeskBooking.Application.csproj", "{E07ADFB2-052D-4909-9E96-25A3731F3333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.Infrastructure", "src\DeskBooking.Infrastructure\DeskBooking.Infrastructure.csproj", "{0D72CA34-C1D1-4D84-9F58-DABBC3AE4444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.ServiceHost", "src\DeskBooking.ServiceHost\DeskBooking.ServiceHost.csproj", "{6A95D4A8-60AF-4E66-96D3-F7028A645555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.WebClient", "src\DeskBooking.WebClient\DeskBooking.WebClient.csproj", "{2AA6757E-7DE8-4EEC-86A4-36A7EB676666}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskBooking.Tests", "src\DeskBooking.Tests\DeskBooking.Tests.csproj", "{B8D5A99D-C93B-432F-964D-6601FAE97777}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAB32C2C-2A34-4A93-8B5A-AF525A3D1111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB32C2C-2A34-4A93-8B5A-AF525A3D1111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB32C2C-2A34-4A93-8B5A-AF525A3D1111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB32C2C-2A34-4A93-8B5A-AF525A3D1111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EF41136-D084-40A6-87B6-B832BB0D2222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF41136-D084-40A6-87B6-B832BB0D2222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF41136-D084-40A6-87B6-B832BB0D2222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF41136-D084-40A6-87B6-B832BB0D2222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E07ADFB2-052D-4909-9E96-25A3731F3333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E07ADFB2-052D-4909-9E96-25A3731F3333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E07ADFB2-052D-4909-9E96-25A3731F3333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E07ADFB2-052D-4909-9E96-25A3731F3333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D72CA34-C1D1-4D84-9F58-DABBC3AE4444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D72CA34-C1D1-4D84-9F58-DABBC3AE4444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D72CA34-C1D1-4D84-9F58-DABBC3AE4444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D72CA34-C1D1-4D84-9F58-DABBC3AE4444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A95D4A8-60AF-4E66-96D3-F7028A645555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A95D4A8-60AF-4E66-96D3-F7028A645555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A95D4A8-60AF-4E66-96D3-F7028A645555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A95D4A8-60AF-4E66-96D3-F7028A645555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA6757E-7DE8-4EEC-86A4-36A7EB676666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA6757E-7DE8-4EEC-86A4-36A7EB676666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA6757E-7DE8-4EEC-86A4-36A7EB676666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA6757E-7DE8-4EEC-86A4-36A7EB676666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D5A99D-C93B-432F-964D-6601FAE97777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D5A99D-C93B-432F-964D-6601FAE97777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D5A99D-C93B-432F-964D-6601FAE97777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D5A99D-C93B-432F-964D-6601FAE97777}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

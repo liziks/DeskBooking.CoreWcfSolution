@@ -1,0 +1,68 @@
+
+@model AvailabilitySearchViewModel
+
+<h2 class="mb-3">Поиск свободных комнат</h2>
+
+<form method="get" class="card card-body shadow-sm mb-4">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Начало</label>
+            <input type="datetime-local" name="startLocal" value="@(Model.StartLocal?.ToString("yyyy-MM-ddTHH:mm"))" class="form-control" />
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Окончание</label>
+            <input type="datetime-local" name="endLocal" value="@(Model.EndLocal?.ToString("yyyy-MM-ddTHH:mm"))" class="form-control" />
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Мин. вместимость</label>
+            <input type="number" name="minCapacity" value="@Model.MinCapacity" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-check mb-2">
+        <input type="checkbox" class="form-check-input" name="requiresProjector" value="true" @(Model.RequiresProjector ? "checked" : "") />
+        <label class="form-check-label">Нужен проектор</label>
+    </div>
+
+    <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" name="requiresWhiteboard" value="true" @(Model.RequiresWhiteboard ? "checked" : "") />
+        <label class="form-check-label">Нужна доска</label>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Найти свободные комнаты</button>
+    </div>
+</form>
+
+@if (Model.AvailableRooms.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Локация</th>
+                <th>Вместимость</th>
+                <th>Проектор</th>
+                <th>Доска</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var room in Model.AvailableRooms)
+        {
+            <tr>
+                <td>@room.Name</td>
+                <td>@room.Location</td>
+                <td>@room.Capacity</td>
+                <td>@(room.HasProjector ? "Да" : "Нет")</td>
+                <td>@(room.HasWhiteboard ? "Да" : "Нет")</td>
+                <td>@room.Description</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else if (Model.StartLocal.HasValue && Model.EndLocal.HasValue)
+{
+    <div class="alert alert-warning">Свободных комнат по выбранным условиям не найдено.</div>
+}

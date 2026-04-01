@@ -1,0 +1,56 @@
+
+@model BookingEditViewModel
+
+<h2 class="mb-3">Редактирование бронирования</h2>
+
+<form asp-action="Edit" method="post" class="card card-body shadow-sm">
+    @Html.AntiForgeryToken()
+    <input asp-for="BookingId" type="hidden" />
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="RoomId" class="form-label">Комната</label>
+        <select asp-for="RoomId" class="form-select">
+            @foreach (var room in Model.Rooms)
+            {
+                <option value="@room.Id">@room.Name (@room.Location)</option>
+            }
+        </select>
+        <span asp-validation-for="RoomId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Тема</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Purpose" class="form-label">Цель</label>
+        <textarea asp-for="Purpose" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="StartLocal" class="form-label">Начало</label>
+            <input asp-for="StartLocal" type="datetime-local" class="form-control" />
+            <span asp-validation-for="StartLocal" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="EndLocal" class="form-label">Окончание</label>
+            <input asp-for="EndLocal" type="datetime-local" class="form-control" />
+            <span asp-validation-for="EndLocal" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ParticipantCount" class="form-label">Количество участников</label>
+        <input asp-for="ParticipantCount" class="form-control" />
+        <span asp-validation-for="ParticipantCount" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Назад</a>
+    </div>
+</form>

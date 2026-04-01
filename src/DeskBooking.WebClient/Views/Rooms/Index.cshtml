@@ -1,0 +1,73 @@
+
+@model List<RoomDto>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Рабочие места</h2>
+    @if (Context.Session.GetString("UserRole") == "Admin")
+    {
+        <a asp-action="Create" class="btn btn-primary">Добавить</a>
+    }
+</div>
+
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-4">
+        <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" class="form-control" placeholder="Поиск по названию / локации" />
+    </div>
+    <div class="col-md-2">
+        <input type="number" name="minCapacity" value="@ViewBag.MinCapacity" class="form-control" placeholder="Кол-во мест" />
+    </div>
+    <div class="col-md-2 form-check ms-3">
+        <input class="form-check-input" type="checkbox" name="requiresProjector" value="true" @(ViewBag.RequiresProjector ? "checked" : "") />
+        <label class="form-check-label">Монитор</label>
+    </div>
+    <div class="col-md-2 form-check">
+        <input class="form-check-input" type="checkbox" name="requiresWhiteboard" value="true" @(ViewBag.RequiresWhiteboard ? "checked" : "") />
+        <label class="form-check-label">Док-станция</label>
+    </div>
+    <div class="col-md-1">
+        <button type="submit" class="btn btn-outline-primary">Найти</button>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped align-middle">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Локация</th>
+            <th>Вместимость</th>
+            <th>Монитор</th>
+            <th>Док-станция</th>
+            <th>Описание</th>
+            @if (Context.Session.GetString("UserRole") == "Admin")
+            {
+                <th style="width: 170px;">Действия</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.Name</td>
+                <td>@room.Location</td>
+                <td>@room.Capacity</td>
+                <td>@(room.HasProjector ? "Да" : "Нет")</td>
+                <td>@(room.HasWhiteboard ? "Да" : "Нет")</td>
+                <td>@room.Description</td>
+                @if (Context.Session.GetString("UserRole") == "Admin")
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@room.Id" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                        <form asp-action="Delete" asp-route-id="@room.Id" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-outline-danger"
+                                    onclick="return confirm('Удалить запись?');">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
